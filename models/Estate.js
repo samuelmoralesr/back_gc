@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 
 const usersSchema = new Schema({
     nombre: String,
+    tipodocumento: String,
     documento: Number,
     area: Number,
     areac : Number,

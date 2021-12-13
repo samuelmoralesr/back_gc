@@ -6,7 +6,9 @@ const usersSchema = new Schema({
     nivel: String,
     nombre: String,
     apellido: String,
+    gender: String,
     telefono: Number,
+    tipodocumento: String,
     documento: Number,
     email: String,
     contrasena: String
