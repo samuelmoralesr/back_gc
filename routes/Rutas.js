@@ -41,5 +41,27 @@ rutas.post('/crear_predio', async (req,res) => {
     })
 })
 
+rutas.delete("/eliminar_predio/:id_estate", async (req , res)=> {
+
+    const id_estate =req.params.id_estate
+    const estate = Estate.findById(id_estate)
+    await estate.deleteOne()
+
+    res.json({
+        mensaje:"Predio elimanado correctamente"
+    })
+})
+
+rutas.delete("/eliminar_usuario/:id_user", async (req , res)=> {
+
+    const id_user =req.params.id_user
+    const user = User.findById(id_user)
+    await user.deleteOne()
+
+    res.json({
+        mensaje:"Usuario elimanado correctamente"
+    })
+})
+
 
 module.exports = rutas
