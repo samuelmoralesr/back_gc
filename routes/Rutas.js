@@ -66,13 +66,11 @@ rutas.delete("/eliminar_usuario/:id_user", async (req , res)=> {
 rutas.put('/editar_usuario/:id_user', async (req, res) => {
 
     const id_user =req.params.id_user
-    const user = User.findById(id_user)
-    await user.findOneAndUpdate()
+    await User.updateOne({_id: id_user }, req.body);
 
-    .then(result => {
-        res.json('Success')
-      })
-     .catch(error => console.error(error))
+    res.json({
+        mensaje:"Usuario editado correctamente"
+    })
 
 })
 
