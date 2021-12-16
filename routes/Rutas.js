@@ -74,5 +74,38 @@ rutas.put('/editar_usuario/:id_user', async (req, res) => {
 
 })
 
+rutas.put('/editar_predio/:id_estate', async (req, res) => {
+
+    const id_estate =req.params.id_estate
+    await Estate.updateOne({_id: id_estate }, req.body);
+
+    res.json({
+        mensaje:"Usuario editado correctamente"
+    })
+
+})
+
+rutas.get('/get_usuarios', async (req, res) => {
+    const usuarios = await User.find()
+
+    res.json(usuarios)
+})
+
+rutas.get('/get_user_by_id/:id_user', async (req, res) => {
+
+    const id_user = req.params.id_user
+    const user = await User.findById(id_user)
+
+    res.json(user);
+})
+
+rutas.get('/get_estate_by_id/:id_estate', async (req, res) => {
+
+    const id_estate = req.params.id_estate
+    const estate = await Estate.findById(id_estate)
+
+    res.json(estate);
+})
+
 
 module.exports = rutas
